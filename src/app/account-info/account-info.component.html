@@ -1,0 +1,66 @@
+
+
+<!--Start : simple if (ngIf directive)-->
+
+<div class="container">
+    <span *ngIf="isDormant" class="text-info">Your account became dormant...please reactivate it</span>
+</div>
+
+   <div class="container">
+       <h1 class="text-primary">Account Info</h1>
+       <!--Display warning message if account balance is less than minimum balance-->
+       <span class="text-danger"   *ngIf="balance < minBalance">Please ensure to maintain minimum balance...</span>
+   </div>
+
+
+<div class="container">
+    <span *ngIf="accountType == 'current' || accountType == 'savings'">You can explore cash deposit machine</span>
+</div>
+
+<!--End : simple if (ngIf directive)-->
+
+
+<!--Start :  (ngIf...else directive)-->
+
+<!-- <div class="container"   *ngIf="isSalaryAcct; else nonSalaryAcct">
+    <span class="text-secondary">You are eligible for corporate account benefits</span>
+</div> -->
+
+<div class="container"   *ngIf="isSalaryAcct; then  salaryAcct else nonSalaryAcct">
+</div>
+
+<ng-template #salaryAcct>   <!--#nonSalaryAcct is template variable-->
+    <div class="container">
+    <span class="text-secondary">You are eligible for corporate account benefits</span>
+</div>
+</ng-template>
+
+<ng-template #nonSalaryAcct>   <!--#nonSalaryAcct is template variable-->
+    <div class="container">
+    <span class="text-secondary">Upgrade Your account to get Corporate benefits</span>
+</div>
+</ng-template>
+
+<!--End :  (ngIf..else directive)-->
+
+<!--Start : (ngSwitchCase)-->
+    <div class="container" [ngSwitch]="accountType">
+          <span *ngSwitchCase="'savings'">Savings : You can open account with your family member name and avail same benefits</span>
+          <span *ngSwitchCase="'current'">Current : You can get a free locker account</span>
+          <span *ngSwitchCase="'loan'">Loan : You can avail top-up on existing loan</span>
+          <span *ngSwitchCase="'smallbusiness'">SmallBusiness : You are eligibvle for another business loan for your new venture</span>
+          <span *ngSwitchDefault>Please reach out your representative to understand benefits</span>
+    </div>   
+<!--End :  (ngSwitchCase)-->
+
+
+
+<!--Start : ngFor directive-->
+<div class="container">
+<h6>Branches</h6>
+<select>
+   <option *ngFor="let branchName of branches">{{branchName}}</option>
+   
+</select>
+</div>
+<!--End : ngFor directive-->
