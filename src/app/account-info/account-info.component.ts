@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountInfo } from '../accountinfo';
 
 @Component({
   selector: 'app-account-info',
@@ -16,8 +17,13 @@ export class AccountInfoComponent {
 
     branches : string[] = ["Hyderabad", "Vijayawada", "Bangalore"];
 
-    
- 
 
+    accontInfo1 : AccountInfo = new AccountInfo("Savings", "11111",10000);
+    accontInfo2 : AccountInfo = new AccountInfo("Current", "222222",20000);
+    accontInfo3 : AccountInfo = new AccountInfo("Loan", "222222",0);
+
+
+
+    accountInfoArr : AccountInfo[] = [this.accontInfo1, this.accontInfo2, this.accontInfo3];
 
 }

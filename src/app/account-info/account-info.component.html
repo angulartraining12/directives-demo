@@ -63,4 +63,32 @@
    
 </select>
 </div>
+
+<div class="container">
+   <h5>Accounts Balances</h5>
+   <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+            <th>Accounttype</th>
+            <th>Accountnumber</th>
+            <th>Balance</th>
+        </tr>
+      </thead>
+     <tbody>
+         <!-- table row with static data
+            <tr>
+                 <td>Savings</td> 
+                <td>1111111</td>
+                <td>50000</td>
+         </tr> -->
+
+          <tr *ngFor="let accountInfo of accountInfoArr">
+            <td>{{accountInfo.accountType}}</td> 
+            <td>{{accountInfo.accountNumber}}</td>
+            <td>{{accountInfo.balance}}</td>
+          </tr>
+     </tbody>
+   </table>
+
+</div>
 <!--End : ngFor directive-->
