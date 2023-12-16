@@ -13,7 +13,7 @@ export class AccountInfoComponent {
     isDormant : boolean = false;
     // KVR : 12/12/23 : Added below variable to display deposit machine message in template
     accountType : string = "loan";
-    isSalaryAcct : boolean = false;
+    isSalaryAcct : boolean = true;
 
     branches : string[] = ["Hyderabad", "Vijayawada", "Bangalore"];
 
@@ -22,8 +22,28 @@ export class AccountInfoComponent {
     accontInfo2 : AccountInfo = new AccountInfo("Current", "222222",20000);
     accontInfo3 : AccountInfo = new AccountInfo("Loan", "222222",0);
 
+    blueColorTextStyle : string = "textBlueColor";
+    greenColorTextStyle : string = "text-success";
+    redColorTextStyle : string = "textRedColor";
+
+    isAadharLinked : boolean = true;
+
+    disClaimerStyle1 : any  = {'background-color':'red', 'font-size': 12, 'font-style': 'italic'};
+    disClaimerStyle2 : any  = {'background-color':'yellow', 'font-size': 12, 'font-style': 'italic'};
+
+
 
 
     accountInfoArr : AccountInfo[] = [this.accontInfo1, this.accontInfo2, this.accontInfo3];
+
+    getDisclaimerStyle(): any {
+       if(this.isSalaryAcct){
+                 return this.disClaimerStyle1;
+       }else {
+            return this.disClaimerStyle2;
+       }
+    }
+
+
 
 }

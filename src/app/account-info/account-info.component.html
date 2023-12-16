@@ -92,3 +92,30 @@
 
 </div>
 <!--End : ngFor directive-->
+
+<!---
+    Different ways to apply CSS style to HTML Elements
+    1. Using Style tag
+    2. Using external css file
+    3. In-line style
+ -->
+
+ <div class="container" >
+      <!-- <span [ngClass]="blueColorTextStyle">Check your aadhar linking status</span> -->
+      <span [ngClass]="isAadharLinked ? greenColorTextStyle : redColorTextStyle">Check your aadhar linking status</span> <!--?:-->
+ </div>
+
+
+ <div class="container" >
+    <!-- <p style="background-color:yellow; font-size: 12; font-style: italic;">
+      Disclaimer : Never share your account number or pin or OTP with anyone.
+    </p> -->
+
+      <p [ngStyle]="getDisclaimerStyle()">
+        Disclaimer : Never share your account number or pin or OTP with anyone.
+      </p>
+
+      <!-- <p [ngStyle]="{'background-color':'blue', 'font-size': 12, 'font-style': 'italic'}">
+        Disclaimer : Never share your account number or pin or OTP with anyone.
+      </p> -->
+</div>
